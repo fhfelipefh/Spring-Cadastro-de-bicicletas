@@ -75,7 +75,8 @@ class BikeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].id", is(5)));
+                .andExpect(jsonPath("$[0].id", is(5)))
+                .andExpect(jsonPath("$[1].model", is("Monark")));
     }
 
 
