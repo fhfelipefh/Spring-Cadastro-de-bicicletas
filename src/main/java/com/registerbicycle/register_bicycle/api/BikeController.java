@@ -37,6 +37,7 @@ public class BikeController {
        return ResponseEntity.ok(bikeService.obterPorModelo(Model));
    }
 
+
     //listar todas as bikes cadastradas GET
     @GetMapping(params = {"page", "size"})
     public ResponseEntity<List<BikeModel>> listar(@RequestParam("page") Integer page,

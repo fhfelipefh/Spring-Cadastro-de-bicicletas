@@ -14,9 +14,9 @@ public class BikeModel {
     private String model;
     private BigDecimal price;
   //@Column(name = "purchase_date")
-    private LocalDate purchase_date;
-    private String buyer_name;
-    private String name_of_the_store_where_you_bought_it;
+    private LocalDate purchaseDate;
+    private String buyerName;
+    private String nameOfTheStoreWhereYouBoughtIt;
 
     public Long getId() { return id; }
 
@@ -45,27 +45,27 @@ public class BikeModel {
     public void setPrice(BigDecimal price) { this.price = price; }
 
     public LocalDate getPurchase_date() {
-        return purchase_date;
+        return purchaseDate;
     }
 
     public void setPurchase_date(LocalDate purchase_date) {
-        this.purchase_date = purchase_date;
+        this.purchaseDate = purchase_date;
     }
 
     public String getBuyer_name() {
-        return buyer_name;
+        return buyerName;
     }
 
     public void setBuyer_name(String buyer_name) {
-        this.buyer_name = buyer_name;
+        this.buyerName = buyer_name;
     }
 
     public String getName_of_the_store_where_you_bought_it() {
-        return name_of_the_store_where_you_bought_it;
+        return nameOfTheStoreWhereYouBoughtIt;
     }
 
     public void setName_of_the_store_where_you_bought_it(String name_of_the_store_where_you_bought_it) {
-        this.name_of_the_store_where_you_bought_it = name_of_the_store_where_you_bought_it;
+        this.nameOfTheStoreWhereYouBoughtIt = name_of_the_store_where_you_bought_it;
     }
 
 }

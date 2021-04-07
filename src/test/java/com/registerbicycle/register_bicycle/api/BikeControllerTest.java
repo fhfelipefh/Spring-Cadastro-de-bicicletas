@@ -1,19 +1,26 @@
 package com.registerbicycle.register_bicycle.api;
 
+
+
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.registerbicycle.register_bicycle.domain.BikeModel;
 import com.registerbicycle.register_bicycle.service.BikeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import javax.swing.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -22,12 +29,12 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@RunWith(SpringRunner.class)
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = BikeController.class)
 class BikeControllerTest {
@@ -40,8 +47,12 @@ class BikeControllerTest {
 
    @MockBean
     private BikeService bikeService;
-
+    private  BikeModel bike1,bike2;
     private List<BikeModel> bikes = new ArrayList<>();
+    private List<BikeModel> bikelist;
+
+    @SpyBean
+    private BikeService BikeService;
 
     @BeforeEach
     void setUp(){
@@ -53,7 +64,8 @@ class BikeControllerTest {
         bikeTestador.setPurchase_date(LocalDate.now());
         bikeTestador.setBuyer_name("José");
         bikeTestador.setName_of_the_store_where_you_bought_it("Monark 2");
-        bikes.add(bikeTestador);
+
+
 
         BikeModel bikeSeguinte = new BikeModel();
         bikeSeguinte.setId(6L);
@@ -63,7 +75,11 @@ class BikeControllerTest {
         bikeSeguinte.setPurchase_date(LocalDate.now());
         bikeSeguinte.setBuyer_name("pedro");
         bikeSeguinte.setName_of_the_store_where_you_bought_it("Monark 2");
+
+        bikes.add(bikeTestador);
         bikes.add(bikeSeguinte);
+
+
     }
 
     @Test
@@ -79,44 +95,20 @@ class BikeControllerTest {
                 .andExpect(jsonPath("$[1].model", is("Monark")));
     }
 
-
     @Test
-    void obter() {
-
+   public void obtervazio() throws Exception {
+        mockMvc.perform(get("/bikes/5"))
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
     }
 
     @Test
-    void listar() {
-    }
+    void deveEditaroPreço() {
 
-    @Test
-    void excluir() {
-    }
-
-    @Test
-    void atualizar() {
-    }
-
-
-
-    @Test
-    void editprice() {
-    }
-
-    @Test
-    void testObter() {
-    }
-
-    @Test
-    void testObter1() {
-    }
-
-    @Test
-    void testObter2() {
     }
 
     @Test
     void testListar() {
+
     }
 
     @Test
@@ -128,10 +120,22 @@ class BikeControllerTest {
     }
 
     @Test
-    void testIncluir() {
+    void incluirBike() throws Exception {
+        BikeModel novaBike = new BikeModel();
+        novaBike.setId(9L);
+        novaBike.setDescription("Vistoria em analise");
+        novaBike.setModel("Monark");
+        novaBike.setPrice(BigDecimal.valueOf(1630));
+        novaBike.setPurchase_date(LocalDate.now());
+        novaBike.setBuyer_name("José pedro");
+        novaBike.setName_of_the_store_where_you_bought_it("Monark 4");
+
+        MvcResult mvcResult = mockMvc.perform(post("/bikes/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(novaBike)))
+                .andExpect(status().isCreated())
+                .andReturn();
     }
 
-    @Test
-    void testEditprice() {
-    }
+
 }

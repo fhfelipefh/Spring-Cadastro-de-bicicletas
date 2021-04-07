@@ -11,10 +11,11 @@ import java.util.List;
 import java.util.Optional;
 import com.registerbicycle.register_bicycle.exeption.BikeException;
 
+
 @Service
 public class BikeService {
 
-    private final BikeRepository bikeRepository;
+    private BikeRepository bikeRepository;
 
     public BikeService(BikeRepository bikeRepository) {
         this.bikeRepository = bikeRepository;
@@ -32,7 +33,6 @@ public class BikeService {
         return this.bikeRepository
                 .save(bikeinf);
     }
-    //
 
 
     //listar
