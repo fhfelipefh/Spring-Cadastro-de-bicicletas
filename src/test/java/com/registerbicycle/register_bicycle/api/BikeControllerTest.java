@@ -1,11 +1,9 @@
 package com.registerbicycle.register_bicycle.api;
 
-
-
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.registerbicycle.register_bicycle.domain.BikeModel;
 import com.registerbicycle.register_bicycle.service.BikeService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,6 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 
@@ -26,6 +25,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -33,6 +33,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.web.servlet.function.RequestPredicates.path;
 
 @RunWith(SpringRunner.class)
 @ExtendWith(SpringExtension.class)
@@ -102,7 +103,17 @@ class BikeControllerTest {
     }
 
     @Test
-    void deveEditaroPreço() {
+    void deveEditaroPreço() throws Exception {
+        BikeModel ultrabike = new BikeModel();
+        ultrabike.setId(8L);
+        ultrabike.setDescription("Coelho de natal");
+        ultrabike.setModel("Monark Ultra");
+        ultrabike.setPrice(BigDecimal.valueOf(10000));
+        ultrabike.setPurchase_date(LocalDate.now());
+        ultrabike.setBuyer_name("peter");
+        ultrabike.setName_of_the_store_where_you_bought_it("Monark 2");
+
+       // MvcResult mvcResult = mockMvc.perform(path("/bikes/8")
 
     }
 
@@ -117,6 +128,7 @@ class BikeControllerTest {
 
     @Test
     void testAtualizar() {
+
     }
 
     @Test
