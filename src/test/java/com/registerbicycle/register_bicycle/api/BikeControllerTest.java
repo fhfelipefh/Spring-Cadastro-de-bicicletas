@@ -1,6 +1,9 @@
 package com.registerbicycle.register_bicycle.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.registerbicycle.register_bicycle.domain.BikeModel;
 import com.registerbicycle.register_bicycle.service.BikeService;
 import org.junit.jupiter.api.Assertions;
@@ -112,9 +115,19 @@ class BikeControllerTest {
         ultrabike.setPurchase_date(LocalDate.now());
         ultrabike.setBuyer_name("peter");
         ultrabike.setName_of_the_store_where_you_bought_it("Monark 2");
+        bikes.add(ultrabike);
 
-       // MvcResult mvcResult = mockMvc.perform(path("/bikes/8")
+        BikeModel biketest = new BikeModel();
+        biketest.setId(8L);
+        biketest.setPrice(BigDecimal.valueOf(5));
 
+        when(bikeService.editprice(bikes.get(0).getId(),ultrabike)).thenReturn(bikes.get(0));
+        String id = String.valueOf(bikes.get(0).getId());
+
+        mockMvc.perform(put("/bikes/{id}",id)
+                .contentType("application/json")
+                .content(objectMapper.writeValueAsString(biketest)))
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -123,7 +136,20 @@ class BikeControllerTest {
     }
 
     @Test
-    void testExcluir() {
+    void testExcluir() throws Exception {
+        BikeModel ultrabike = new BikeModel();
+        ultrabike.setId(8L);
+        ultrabike.setDescription("Coelho de natal");
+        ultrabike.setModel("Monark Ultra");
+        ultrabike.setPrice(BigDecimal.valueOf(10000));
+        ultrabike.setPurchase_date(LocalDate.now());
+        ultrabike.setBuyer_name("peter");
+        ultrabike.setName_of_the_store_where_you_bought_it("Monark 2");
+        bikes.add(ultrabike);
+
+        mockMvc.perform(delete("/bikes/{id}",8L)
+                .contentType("application/json"))
+                .andExpect(status().isOk());
     }
 
     @Test
