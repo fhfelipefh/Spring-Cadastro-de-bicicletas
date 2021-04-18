@@ -119,15 +119,19 @@ class BikeControllerTest {
 
         BikeModel biketest = new BikeModel();
         biketest.setId(8L);
-        biketest.setPrice(BigDecimal.valueOf(5));
+        biketest.setPrice(BigDecimal.valueOf(50));
 
-        when(bikeService.editprice(bikes.get(0).getId(),ultrabike)).thenReturn(bikes.get(0));
-        String id = String.valueOf(bikes.get(0).getId());
+        System.out.println(ultrabike);
+
+        var id = 8;
 
         mockMvc.perform(put("/bikes/{id}",id)
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(biketest)))
                 .andExpect(status().isOk());
+
+        mockMvc.perform(get("/bikes/{id}",id))
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
     }
 
     @Test
@@ -150,6 +154,9 @@ class BikeControllerTest {
         mockMvc.perform(delete("/bikes/{id}",8L)
                 .contentType("application/json"))
                 .andExpect(status().isOk());
+
+        mockMvc.perform(get("/bikes/8"))
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
     }
 
     @Test
