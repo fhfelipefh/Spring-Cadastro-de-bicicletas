@@ -1,5 +1,8 @@
-# Spring-Cadastro-de-bicicletas
-#### Uma API para controlar o cadastro de bicicletas, essa API foi construida na linguagem Java utilizando o Framework Spring :smile: 
+<p align="center"><img src="img\logo.png"></p>
+<p align="center">
+<smallUma API para controlar o cadastro de bicicletas, essa API foi construida na linguagem Java utilizando o Framework Spring :smile:</small> 
+</p> 
+<hr>
 - Cadastrar bicicletas :heavy_check_mark:
 - Listar bicicletas :heavy_check_mark:
 - editar preço :heavy_check_mark:
