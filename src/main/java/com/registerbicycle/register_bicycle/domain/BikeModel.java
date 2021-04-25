@@ -13,7 +13,6 @@ public class BikeModel {
     private String description;
     private String model;
     private BigDecimal price;
-  //@Column(name = "purchase_date")
     private LocalDate purchaseDate;
     private String buyerName;
     private String nameOfTheStoreWhereYouBoughtIt;

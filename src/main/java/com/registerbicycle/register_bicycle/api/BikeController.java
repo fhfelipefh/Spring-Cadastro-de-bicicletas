@@ -21,6 +21,12 @@ public class BikeController {
        this.bikeService = bikeService;
     }
 
+    //GET init
+    @GetMapping("")
+    String hello() {
+        return "<html><p>Hello, World!</p><p><b>Mais informações em:&nbsp;</b><a href='https://github.com/fhfelipefh/Spring-Cadastro-de-bicicletas'>https://github.com/fhfelipefh/Spring-Cadastro-de-bicicletas</a></p></html>";
+    }
+
     //listar uma bike cadastrada por ID GET
     @GetMapping("/{id}")
     public ResponseEntity<BikeModel> obter(@PathVariable Long id) {
@@ -31,9 +37,9 @@ public class BikeController {
         return ResponseEntity.noContent().build();
     }
 
-    //obter modelo por modelo
-   @GetMapping("")
-    public ResponseEntity<List<BikeModel>> obter(@RequestParam String Model) {
+    //obter modelo por modelo http://localhost:8081/bikes/model?model=
+   @GetMapping("/model")
+    public ResponseEntity<List<BikeModel>> obter(@RequestParam("model") String Model) {
        return ResponseEntity.ok(bikeService.obterPorModelo(Model));
    }
 
