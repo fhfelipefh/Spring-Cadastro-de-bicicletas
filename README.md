@@ -26,7 +26,6 @@ Se o servidor estiver em operação verá uma página web com a mensagem "Hello,
 JSON:
 ```
 {
-    "id": 2,
     "description": "Bicicleta verde com listras brancas",
     "model": "Monark",
     "price": 999,
@@ -35,7 +34,7 @@ JSON:
     "buyer_name": "jack"
 }
 ```
-  
+<img src="img\postjson.PNG">  
 
 
 
