@@ -45,7 +45,11 @@ JSON:
 ```
 <p> 
 Se obter sucesso na requisição verá algo como na imagem, anote o valor do campo ID que é necessario para checar um campo individualmente. 
-<img src="img\postjson.PNG">  
+</p>
+<p>
+<img src="img\postjson.PNG"> 
+</p>
+<p>
 Note o status 201 Created indicando sucesso na requisição feita.     
 </p>
 
