@@ -1,4 +1,4 @@
-<p align="center"><img src="img\logo.png"></p>
+<p align="center"><img src="img\logo2.png"></p>
 <p align="center">
 <smallUma API para controlar o cadastro de bicicletas, essa API foi construida na linguagem Java utilizando o Framework Spring :smile:</small> 
 </p> 
