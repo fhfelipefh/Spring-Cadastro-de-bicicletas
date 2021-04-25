@@ -20,7 +20,7 @@ https://bikerg.herokuapp.com/bikes
 <p>
 Se o servidor estiver em operação verá uma página web com a mensagem "Hello, World!", a API está hospedada remotamente na plataforma Heroku que pode ser acessada em https://heroku.com 
 </p>
-<img src="img\helloworld.png">
+<img src="img\helloworld.JPG">
 
 JSON:
 ```
