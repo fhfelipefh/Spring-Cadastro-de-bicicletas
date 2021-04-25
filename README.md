@@ -6,6 +6,19 @@
 - Deletar bicicletas :heavy_check_mark:
 - Tests :heavy_check_mark:  
 
+JSON:
+```
+{
+    "id": 1,
+    "description": "Bicicleta rosa com listras brancas",
+    "model": "Monark",
+    "price": 999,
+    "name_of_the_store_where_you_bought_it": null,
+    "purchase_date": null,
+    "buyer_name": null
+}
+```
+  
 
 
 
