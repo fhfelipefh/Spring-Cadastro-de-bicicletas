@@ -18,10 +18,19 @@
 
 https://bikerg.herokuapp.com/bikes
 <p>
-Se o servidor estiver em operação verá uma página web com a mensagem "Hello, World!", a API está hospedada remotamente na plataforma Heroku que pode ser acessada em https://heroku.com 
+    Se o servidor estiver em operação verá uma página web com a mensagem "Hello, World!", a API está hospedada remotamente na plataforma Heroku que pode ser acessada em https://heroku.com 
 </p>
 <img src="img\helloworld.JPG">
 <hr>
+
+## Como cadastrar uma bicicleta?
+
+<p>
+    Você pode utilizar o software https://www.postman.com/ para enviar uma requisição em formato JSON usando o método POST com base no formato abaixo e na URL da API.
+</p>
+<p>
+URL da API: https://bikerg.herokuapp.com/bikes/
+</p>    
 
 JSON:
 ```
@@ -34,7 +43,24 @@ JSON:
     "buyer_name": "jack"
 }
 ```
-<img src="img\postjson.PNG">  
+<p> 
+    Se obter sucesso na requisição verá algo como na imagem, anote o valor do campo ID que é necessario para checar um campo individualmente. 
+</p>
+<p>
+<img src="img\postjson.PNG"> 
+</p>
+<p>
+    <small>Note o status 201 Created indicando sucesso na requisição feita.</small>    
+</p>
 
+## Como listar todas as bicicletas? 
+
+<p>
+    Você deve usar a URL https://bikerg.herokuapp.com/bikes/all utilizando o método GET recebera uma lista com todos os objetos cadastrados, se forem muitos o servidor pode demorar para responder a requisição.
+</p>
+
+<img src="img\getall.PNG"> 
+
+* Lembre-se de cadastrar apenas dados fictícios, a API pode ser acessada por todos e os dados serão apagados dos sistemas ocasionalmente.
 
 
