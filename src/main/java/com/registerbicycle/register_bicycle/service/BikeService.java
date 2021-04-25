@@ -2,10 +2,7 @@ package com.registerbicycle.register_bicycle.service;
 
 import com.registerbicycle.register_bicycle.domain.BikeModel;
 import com.registerbicycle.register_bicycle.domain.BikeRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Sort;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,12 +31,9 @@ public class BikeService {
                 .save(bikeinf);
     }
 
-
     //listar
-    public Page<BikeModel> listar(Integer page, Integer size) {
-        return this.bikeRepository
-                .findAll(
-                        PageRequest.of(page, size, Sort.by("Model").descending().and(Sort.by("price"))));
+    public List<BikeModel> listar() {
+        return this.bikeRepository.findAll();
     }
     //excluir
     public void excluir(Long id) {

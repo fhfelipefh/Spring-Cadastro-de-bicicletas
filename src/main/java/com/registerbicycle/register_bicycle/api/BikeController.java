@@ -45,10 +45,9 @@ public class BikeController {
 
 
     //listar todas as bikes cadastradas GET
-    @GetMapping(params = {"page", "size"})
-    public ResponseEntity<List<BikeModel>> listar(@RequestParam("page") Integer page,
-                                                   @RequestParam("size") Integer size) {
-        return ResponseEntity.ok(bikeService.listar(page, size).getContent());
+    @GetMapping("/all")
+    public ResponseEntity<List<BikeModel>> listar() {
+        return ResponseEntity.ok(bikeService.listar());
     }
 
     //deletar uma bike DELETE

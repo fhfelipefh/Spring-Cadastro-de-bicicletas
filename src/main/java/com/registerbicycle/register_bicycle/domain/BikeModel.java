@@ -14,7 +14,9 @@ public class BikeModel {
     private String model;
     private BigDecimal price;
     private LocalDate purchaseDate;
+    @Column(nullable = false)
     private String buyerName;
+    @Column(nullable = false)
     private String nameOfTheStoreWhereYouBoughtIt;
 
     public Long getId() { return id; }

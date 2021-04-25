@@ -8,5 +8,5 @@ import java.util.List;
 public interface BikeRepository extends PagingAndSortingRepository<BikeModel, Long> {
 
     List<BikeModel> findAllByModelContaining(String Model);
-
+    List<BikeModel> findAll();
 }
