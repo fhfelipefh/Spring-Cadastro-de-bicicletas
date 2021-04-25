@@ -23,6 +23,15 @@ Se o servidor estiver em operação verá uma página web com a mensagem "Hello,
 <img src="img\helloworld.JPG">
 <hr>
 
+## Como cadastrar uma bicicleta?
+
+<p>
+Você pode utilizar o software https://www.postman.com/ para enviar uma requisição em formato JSON com o método POST com base no formato abaixo e na URL.
+</p>
+<p>
+URL: https://bikerg.herokuapp.com/bikes/
+</p>    
+
 JSON:
 ```
 {
@@ -34,7 +43,9 @@ JSON:
     "buyer_name": "jack"
 }
 ```
+<p> 
+Se obter sucesso na requisição verá algo como na imagem, anote o valor do campo ID que é necessario para checar um campo individualmente. 
 <img src="img\postjson.PNG">  
-
+</p>
 
 
