@@ -9,13 +9,13 @@
 JSON:
 ```
 {
-    "id": 1,
-    "description": "Bicicleta rosa com listras brancas",
+    "id": 2,
+    "description": "Bicicleta verde com listras brancas",
     "model": "Monark",
     "price": 999,
-    "name_of_the_store_where_you_bought_it": null,
-    "purchase_date": null,
-    "buyer_name": null
+    "name_of_the_store_where_you_bought_it": "Hero",
+    "purchase_date": "1999-04-03",
+    "buyer_name": "jack"
 }
 ```
   
