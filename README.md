@@ -14,6 +14,8 @@
 
 **- Tests :heavy_check_mark:**  
 
+**- CRUD :heavy_check_mark:** 
+
 ## Você pode fazer um teste de conexão utilizando o endereço:
 
 https://bikerg.herokuapp.com/bikes
