@@ -35,6 +35,7 @@ public class BikeService {
     public List<BikeModel> listar() {
         return this.bikeRepository.findAll();
     }
+
     //excluir
     public void excluir(Long id) {
         this.bikeRepository.deleteById(id);
