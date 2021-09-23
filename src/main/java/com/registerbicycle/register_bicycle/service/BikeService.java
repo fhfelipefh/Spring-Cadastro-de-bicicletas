@@ -24,7 +24,7 @@ public class BikeService {
 
     //incluir
     public BikeModel incluir(BikeModel bikeinf) {
-        if (bikeinf.getId() != null) {
+        if (bikeinf.getId() == null) {
             throw new BikeException("Bike", "incluir", bikeinf.getId());
         }
         return this.bikeRepository
