@@ -5,7 +5,6 @@ plugins {
 }
 
 group = 'com.registerbicycle'
-version = '0.0.1-SNAPSHOT'
 
 
 repositories {
@@ -15,13 +14,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	//implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'junit:junit:4.12'
-	//implementation 'junit:junit:4.12'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	//testImplementation 'io.projectreactor:reactor-test'
 }
 
 test {
